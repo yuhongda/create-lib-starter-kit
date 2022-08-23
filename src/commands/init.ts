@@ -6,7 +6,9 @@ import chalk from 'chalk'
 import fs from 'fs-extra'
 import path from 'path'
 import ora from 'ora'
-import { Octokit, App } from 'octokit'
+import { Octokit } from 'octokit'
+import { execSync } from 'child_process'
+import glob from 'glob'
 
 const init = async (options: Option) => {
   const response = await prompts([
@@ -63,10 +65,26 @@ const init = async (options: Option) => {
   if (token) {
     const octokit = new Octokit({ auth: token })
     const {
-      data: { login }
+      data: { login, email }
     } = await octokit.rest.users.getAuthenticated()
     console.log('Hello, %s', login)
-    octokit.rest.repos.createInOrg({ org, name: libName, auto_init: true })
+
+    // create repo
+    octokit.rest.repos.createForAuthenticatedUser({ name: libName })
+    // execSync(`cd ${libName}`)
+
+    
+    glob(`${path.resolve(`./${libName}`)}/**/*.*`, {}, function (er, files) {
+      console.log(files)
+    })
+    // octokit.rest.git.createCommit({
+    //   owner: login,
+    //   repo: libName,
+    //   message: 'initial: 🥳',
+    //   tree,
+    //   'author.name': login,
+    //   'author.email': email
+    // })
   }
 }
 
