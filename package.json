@@ -1,0 +1,63 @@
+{
+  "name": "create-lib-starter-kit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=16"
+  },
+  "files": [
+    "lib",
+    "templates",
+    "types",
+    "index.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
+  "bin": {
+    "create-lib-starter-kit": "./lib/index.js"
+  },
+  "scripts": {
+    "lib": "babel src --out-dir lib --extensions \".js,.jsx,.ts,.tsx\" --config-file \"./.babelrc.js\"",
+    "dts": "FORMAT=dts rollup -c rollup.config.ts --configPlugin rollup-plugin-typescript2",
+    "build": "yarn run clear && yarn run lib && yarn run dts",
+    "clear": "rm -rf lib/ && rm -rf types/",
+    "test": "jest",
+    "jest:clear": "jest --clearCache",
+    "cover": "yarn run jest:clear && jest --coverage --config=jest.config.ts",
+    "make-badges": "istanbul-badges-readme --coverageDir=__test__/coverage",
+    "ci": "yarn run build && yarn run cover && codecov",
+    "release": "npm publish"
+  },
+  "keywords": [
+    "lib",
+    "starter",
+    "kit",
+    "typescript"
+  ],
+  "repository": "https://github.com/yuhongda/create-lib-starter-kit.git",
+  "author": "yuhongda <silverage.y@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^18.7.11",
+    "@types/prompts": "^2.0.14",
+    "rollup": "^2.78.1",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "commander": "^9.4.0",
+    "fs-extra": "^10.1.0",
+    "octokit": "^1.8.1",
+    "ora": "^6.1.2",
+    "prompts": "^2.4.2"
+  }
+}

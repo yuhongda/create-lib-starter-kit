@@ -1,0 +1,9 @@
+node_modules
+lib
+
+/__test__/coverage
+/.DS_Store
+/packages/charts/.DS_Store
+/packages/.DS_Store
+/demo/yarn-error.log
+/yarn-error.log
