@@ -15,11 +15,12 @@ specifiers:
   fs-extra: ^10.1.0
   glob: ^8.0.3
   octokit: ^1.8.1
-  ora: ^6.1.2
+  ora: 5.4.1
   prompts: ^2.4.2
   rollup: ^2.78.1
   rollup-plugin-dts: ^4.2.2
   rollup-plugin-typescript2: ^0.32.1
+  simple-git: ^3.12.0
   typescript: ^4.7.4
 
 dependencies:
@@ -28,8 +29,9 @@ dependencies:
   fs-extra: 10.1.0
   glob: 8.0.3
   octokit: 1.8.1
-  ora: 6.1.2
+  ora: 5.4.1
   prompts: 2.4.2
+  simple-git: 3.12.0
 
 devDependencies:
   '@babel/cli': 7.18.10_@babel+core@7.18.10
@@ -1361,8 +1363,20 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
+  /@kwsites/file-exists/1.1.1:
+    resolution: {integrity: sha1-rR78rBPhmH2NuvI17zvlsNlvqpk=, tarball: '@kwsites/file-exists/download/@kwsites/file-exists-1.1.1.tgz'}
+    dependencies:
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@kwsites/promise-deferred/1.1.1:
+    resolution: {integrity: sha1-is5SWSVEJszvV/MXW8ZO1wle2Rk=, tarball: '@kwsites/promise-deferred/download/@kwsites/promise-deferred-1.1.1.tgz'}
+    dev: false
+
   /@nicolo-ribaudo/chokidar-2/2.1.8-no-fsevents.3:
-    resolution: {integrity: sha512-s88O1aVtXftvp5bCPB7WnmXc5IwOZZ7YPuwNPt+GtOOXpPvad1LfbmjYv+qII7zP6RU2QGnqve27dnLycEnyEQ==}
+    resolution: {integrity: sha1-Mj1y3SUQPQxPvc6J2t9XSnh7H5s=, tarball: '@nicolo-ribaudo/chokidar-2/download/@nicolo-ribaudo/chokidar-2-2.1.8-no-fsevents.3.tgz'}
     requiresBuild: true
     dev: true
     optional: true
@@ -1659,9 +1673,9 @@ packages:
       indent-string: 4.0.0
     dev: false
 
-  /ansi-regex/6.0.1:
-    resolution: {integrity: sha1-MYPjj66aZdfLXlOUXNWJfQJgoGo=, tarball: ansi-regex/download/ansi-regex-6.0.1.tgz}
-    engines: {node: '>=12'}
+  /ansi-regex/5.0.1:
+    resolution: {integrity: sha1-CCyyyJyf6GWaMRpTvWpNxTAdswQ=, tarball: ansi-regex/download/ansi-regex-5.0.1.tgz}
+    engines: {node: '>=8'}
     dev: false
 
   /ansi-styles/3.2.1:
@@ -1701,7 +1715,7 @@ packages:
     optional: true
 
   /aws-lambda/1.0.7:
-    resolution: {integrity: sha512-9GNFMRrEMG5y3Jvv+V4azWvc+qNWdWLTjDdhf/zgMlz8haaaLWv0xeAIWxz9PuWUBawsVxy0zZotjCdR3Xq+2w==}
+    resolution: {integrity: sha1-xrZ030dFi17NQ6tzSJmtLi1FcBM=, tarball: aws-lambda/download/aws-lambda-1.0.7.tgz}
     hasBin: true
     requiresBuild: true
     dependencies:
@@ -1788,10 +1802,10 @@ packages:
     dev: true
     optional: true
 
-  /bl/5.0.0:
-    resolution: {integrity: sha1-aSiASkHp2pA0ho4cUMqI8h9XrqI=, tarball: bl/download/bl-5.0.0.tgz}
+  /bl/4.1.0:
+    resolution: {integrity: sha1-RRU1JkGCvsL7vIOmKrmM8R2fezo=, tarball: bl/download/bl-4.1.0.tgz}
     dependencies:
-      buffer: 6.0.3
+      buffer: 5.7.1
       inherits: 2.0.4
       readable-stream: 3.6.0
     dev: false
@@ -1849,8 +1863,8 @@ packages:
     dev: false
     optional: true
 
-  /buffer/6.0.3:
-    resolution: {integrity: sha1-Ks5XhFnMj74qcKqo9S7mO2p0xsY=, tarball: buffer/download/buffer-6.0.3.tgz}
+  /buffer/5.7.1:
+    resolution: {integrity: sha1-umLnwTEzBTWCGXFghRqPZI6Z7tA=, tarball: buffer/download/buffer-5.7.1.tgz}
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
@@ -1883,13 +1897,8 @@ packages:
       supports-color: 7.2.0
     dev: false
 
-  /chalk/5.0.1:
-    resolution: {integrity: sha1-ylfXHoK7U0opbfY7usxKHCKypLY=, tarball: chalk/download/chalk-5.0.1.tgz}
-    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-    dev: false
-
   /chokidar/3.5.3:
-    resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
+    resolution: {integrity: sha1-HPN8hwe5Mr0a8a4iwEMuKs0ZA70=, tarball: chokidar/download/chokidar-3.5.3.tgz}
     engines: {node: '>= 8.10.0'}
     requiresBuild: true
     dependencies:
@@ -1910,11 +1919,11 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /cli-cursor/4.0.0:
-    resolution: {integrity: sha1-POz+NzS/T+Aqg2HL3A9v4oxqV+o=, tarball: cli-cursor/download/cli-cursor-4.0.0.tgz}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+  /cli-cursor/3.1.0:
+    resolution: {integrity: sha1-JkMFp65JDR0Dvwybp8kl0XU68wc=, tarball: cli-cursor/download/cli-cursor-3.1.0.tgz}
+    engines: {node: '>=8'}
     dependencies:
-      restore-cursor: 4.0.0
+      restore-cursor: 3.1.0
     dev: false
 
   /cli-spinners/2.7.0:
@@ -1994,7 +2003,6 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.2
-    dev: true
 
   /defaults/1.0.3:
     resolution: {integrity: sha1-xlYFHpgX2f8I7YgUd/P+QBnz730=, tarball: defaults/download/defaults-1.0.3.tgz}
@@ -2016,7 +2024,7 @@ packages:
   /ecdsa-sig-formatter/1.0.11:
     resolution: {integrity: sha1-rg8PothQRe8UqBfao86azQSJ5b8=, tarball: ecdsa-sig-formatter/download/ecdsa-sig-formatter-1.0.11.tgz}
     dependencies:
-      safe-buffer: 5.1.2
+      safe-buffer: 5.2.1
     dev: false
 
   /electron-to-chromium/1.4.208:
@@ -2147,7 +2155,7 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
 
   /fsevents/2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=, tarball: fsevents/download/fsevents-2.3.2.tgz}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -2383,9 +2391,9 @@ packages:
     dev: true
     optional: true
 
-  /is-interactive/2.0.0:
-    resolution: {integrity: sha1-QMV2FFk4JtoRAK3mBZd41ZfxbpA=, tarball: is-interactive/download/is-interactive-2.0.0.tgz}
-    engines: {node: '>=12'}
+  /is-interactive/1.0.0:
+    resolution: {integrity: sha1-zqbmrlyHCnsKAAQHC3tYfgJSkS4=, tarball: is-interactive/download/is-interactive-1.0.0.tgz}
+    engines: {node: '>=8'}
     dev: false
 
   /is-negative-zero/2.0.2:
@@ -2457,9 +2465,9 @@ packages:
     dev: false
     optional: true
 
-  /is-unicode-supported/1.2.0:
-    resolution: {integrity: sha1-9PVPNNjryEpGuTVZoDZ2O20+EBQ=, tarball: is-unicode-supported/download/is-unicode-supported-1.2.0.tgz}
-    engines: {node: '>=12'}
+  /is-unicode-supported/0.1.0:
+    resolution: {integrity: sha1-PybHaoCVk7Ur+i7LVxDtJ3m1Iqc=, tarball: is-unicode-supported/download/is-unicode-supported-0.1.0.tgz}
+    engines: {node: '>=10'}
     dev: false
 
   /is-weakref/1.0.2:
@@ -2538,14 +2546,14 @@ packages:
     dependencies:
       buffer-equal-constant-time: 1.0.1
       ecdsa-sig-formatter: 1.0.11
-      safe-buffer: 5.1.2
+      safe-buffer: 5.2.1
     dev: false
 
   /jws/3.2.2:
     resolution: {integrity: sha1-ABCZ82OUaMlBQADpmZX6UvtHgwQ=, tarball: jws/download/jws-3.2.2.tgz}
     dependencies:
       jwa: 1.4.1
-      safe-buffer: 5.1.2
+      safe-buffer: 5.2.1
     dev: false
 
   /kleur/3.0.3:
@@ -2592,12 +2600,12 @@ packages:
     resolution: {integrity: sha1-DdOXEhPHxW34gJd9UEyI+0cal6w=, tarball: lodash.once/download/lodash.once-4.1.1.tgz}
     dev: false
 
-  /log-symbols/5.1.0:
-    resolution: {integrity: sha1-og47ml9T+sauuOK7IsB88sjxbZM=, tarball: log-symbols/download/log-symbols-5.1.0.tgz}
-    engines: {node: '>=12'}
+  /log-symbols/4.1.0:
+    resolution: {integrity: sha1-P727lbRoOsn8eFER55LlWNSr1QM=, tarball: log-symbols/download/log-symbols-4.1.0.tgz}
+    engines: {node: '>=10'}
     dependencies:
-      chalk: 5.0.1
-      is-unicode-supported: 1.2.0
+      chalk: 4.1.2
+      is-unicode-supported: 0.1.0
     dev: false
 
   /lru-cache/6.0.0:
@@ -2717,18 +2725,18 @@ packages:
       mimic-fn: 2.1.0
     dev: false
 
-  /ora/6.1.2:
-    resolution: {integrity: sha1-ezwTVrQv2Q+x2tBD1dvmSTiKC/U=, tarball: ora/download/ora-6.1.2.tgz}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+  /ora/5.4.1:
+    resolution: {integrity: sha1-GyZ4Qmr0rEpQkAjl5KyemVnbnhg=, tarball: ora/download/ora-5.4.1.tgz}
+    engines: {node: '>=10'}
     dependencies:
-      bl: 5.0.0
-      chalk: 5.0.1
-      cli-cursor: 4.0.0
+      bl: 4.1.0
+      chalk: 4.1.2
+      cli-cursor: 3.1.0
       cli-spinners: 2.7.0
-      is-interactive: 2.0.0
-      is-unicode-supported: 1.2.0
-      log-symbols: 5.1.0
-      strip-ansi: 7.0.1
+      is-interactive: 1.0.0
+      is-unicode-supported: 0.1.0
+      log-symbols: 4.1.0
+      strip-ansi: 6.0.1
       wcwidth: 1.0.1
     dev: false
 
@@ -2886,9 +2894,9 @@ packages:
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
 
-  /restore-cursor/4.0.0:
-    resolution: {integrity: sha1-UZVgpDGJdQlt725gnUQQDtqkzLk=, tarball: restore-cursor/download/restore-cursor-4.0.0.tgz}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+  /restore-cursor/3.1.0:
+    resolution: {integrity: sha1-OfZ8VLOnpYzqUjbZXPADQjljH34=, tarball: restore-cursor/download/restore-cursor-3.1.0.tgz}
+    engines: {node: '>=8'}
     dependencies:
       onetime: 5.1.2
       signal-exit: 3.0.7
@@ -2933,6 +2941,7 @@ packages:
 
   /safe-buffer/5.1.2:
     resolution: {integrity: sha1-mR7GnSluAxN0fVm9/St0XDX4go0=, tarball: safe-buffer/download/safe-buffer-5.1.2.tgz}
+    dev: true
 
   /safe-buffer/5.2.1:
     resolution: {integrity: sha1-Hq+fqb2x/dTsdfWPnNtOa3gn7sY=, tarball: safe-buffer/download/safe-buffer-5.2.1.tgz}
@@ -2968,6 +2977,16 @@ packages:
 
   /signal-exit/3.0.7:
     resolution: {integrity: sha1-qaF2f4r4QVURTqq9c/mSc8j1mtk=, tarball: signal-exit/download/signal-exit-3.0.7.tgz}
+    dev: false
+
+  /simple-git/3.12.0:
+    resolution: {integrity: sha1-EvqOdi2Nlin7HHKg4rTmrlsfEeg=, tarball: simple-git/download/simple-git-3.12.0.tgz}
+    dependencies:
+      '@kwsites/file-exists': 1.1.1
+      '@kwsites/promise-deferred': 1.1.1
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /sisteransi/1.0.5:
@@ -3012,11 +3031,11 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
-  /strip-ansi/7.0.1:
-    resolution: {integrity: sha1-YXQKCM42th5Q5lZT8HBg0ACXX7I=, tarball: strip-ansi/download/strip-ansi-7.0.1.tgz}
-    engines: {node: '>=12'}
+  /strip-ansi/6.0.1:
+    resolution: {integrity: sha1-nibGPTD1NEPpSJSVshBdN7Z6hdk=, tarball: strip-ansi/download/strip-ansi-6.0.1.tgz}
+    engines: {node: '>=8'}
     dependencies:
-      ansi-regex: 6.0.1
+      ansi-regex: 5.0.1
     dev: false
 
   /supports-color/5.5.0:
@@ -3143,7 +3162,7 @@ packages:
       is-arguments: 1.1.1
       is-generator-function: 1.0.10
       is-typed-array: 1.1.9
-      safe-buffer: 5.1.2
+      safe-buffer: 5.2.1
       which-typed-array: 1.1.8
     dev: false
     optional: true

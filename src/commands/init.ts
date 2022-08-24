@@ -3,15 +3,15 @@
 import type { Option } from '../types'
 import prompts from 'prompts'
 import chalk from 'chalk'
-import fs from 'fs-extra'
+import fs, { readFile } from 'fs-extra'
 import path from 'path'
 import ora from 'ora'
 import { Octokit } from 'octokit'
 import { execSync } from 'child_process'
-import glob from 'glob'
+import simpleGit from 'simple-git'
 
 const init = async (options: Option) => {
-  const response = await prompts([
+  const { libName, template } = await prompts([
     {
       type: 'text',
       name: 'libName',
@@ -31,18 +31,18 @@ const init = async (options: Option) => {
       ]
     }
   ])
-  console.log(`${response.libName} ${response.template} created!`)
-
-  const { libName, template } = response
 
   try {
-    await fs.copy(path.resolve(`./templates/${template}`), path.resolve(`./${libName}`))
+    await fs.copy(
+      path.resolve(__dirname, `../../templates/${template}`),
+      path.resolve(`./${libName}`)
+    )
   } catch (err) {
     console.error(err)
     process.exit(1)
   }
 
-  const responseForGitHub = await prompts([
+  const { token } = await prompts([
     {
       type: 'confirm',
       name: 'value',
@@ -53,38 +53,51 @@ const init = async (options: Option) => {
       type: (prev) => (prev === true ? 'text' : null),
       name: 'token',
       message: 'Type your GitHub Personal access token: '
-    },
-    {
-      type: 'text',
-      name: 'org',
-      message: 'Type your GitHub Organization: '
     }
   ])
 
-  const { token, org } = responseForGitHub
   if (token) {
     const octokit = new Octokit({ auth: token })
+    const spinner = ora({
+      color: 'green'
+    })
+    // login to GitHub
+    spinner.text = '🧑‍💻 Login to GitHub...'
+    spinner.start()
     const {
-      data: { login, email }
+      data: { login }
     } = await octokit.rest.users.getAuthenticated()
-    console.log('Hello, %s', login)
+    console.log('👋 Hello, %s', login)
 
     // create repo
-    octokit.rest.repos.createForAuthenticatedUser({ name: libName })
-    // execSync(`cd ${libName}`)
-
-    
-    glob(`${path.resolve(`./${libName}`)}/**/*.*`, {}, function (er, files) {
-      console.log(files)
+    spinner.text = '🛠 Creating Repo...'
+    const {
+      data: { clone_url }
+    } = await octokit.rest.repos.createForAuthenticatedUser({
+      name: libName,
+      private: true,
+      auto_init: true
     })
-    // octokit.rest.git.createCommit({
-    //   owner: login,
-    //   repo: libName,
-    //   message: 'initial: 🥳',
-    //   tree,
-    //   'author.name': login,
-    //   'author.email': email
-    // })
+
+    spinner.text = '🛠 Init local Repo...'
+    await simpleGit(`./${libName}`)
+      .init()
+      .addRemote('origin', clone_url)
+      .pull('origin', 'main', { '--rebase': 'true' })
+    spinner.stop()
+  }
+
+  // open in vscode
+  const { openInVSCode } = await prompts([
+    {
+      type: 'confirm',
+      name: 'openInVSCode',
+      message: 'Wanna open in VSCode?',
+      initial: true
+    }
+  ])
+  if (openInVSCode) {
+    execSync(`code ./${libName}`)
   }
 }
 
