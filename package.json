@@ -27,7 +27,8 @@
     "cover": "yarn run jest:clear && jest --coverage --config=jest.config.ts",
     "make-badges": "istanbul-badges-readme --coverageDir=__test__/coverage",
     "ci": "yarn run build && yarn run cover && codecov",
-    "release": "npm publish"
+    "release": "standard-version",
+    "release:patch": "standard-version --release-as patch"
   },
   "keywords": [
     "lib",
@@ -51,6 +52,7 @@
     "rollup": "^2.78.1",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-typescript2": "^0.32.1",
+    "standard-version": "^9.5.0",
     "typescript": "^4.7.4"
   },
   "dependencies": {
