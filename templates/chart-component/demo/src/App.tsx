@@ -16,7 +16,7 @@ function App() {
   return (
     <Wrapper>
       <header className="App-header">
-        <Title>{`my-lib`}</Title>
+        <Title>{`My Chart`}</Title>
         <Divider />
         <Row gutter={16}>
           <Col span={24}>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { MyComponent } from '../../../src'
+import { MyChart } from '../../../src'
 
 const Container = styled.div`
   width: 100%;
@@ -11,7 +11,7 @@ export const Example: React.FC = () => {
 
   return (
     <Container>
-      <MyComponent />
+      <MyChart />
     </Container>
   )
 }

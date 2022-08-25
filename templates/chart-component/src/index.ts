@@ -1,5 +1,5 @@
-import MyComponent from './MyComponent'
+import MyChart from './MyChart'
 
 export type {}
-export { MyComponent }
-export default { MyComponent }
+export { MyChart }
+export default { MyChart }

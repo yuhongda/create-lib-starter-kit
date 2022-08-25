@@ -27,7 +27,8 @@ const init = async (options: Option) => {
       message: 'Choose a template: ',
       choices: [
         { title: 'monorepo-react-ts', value: 'monorepo-react-ts' },
-        { title: 'monorepo-vue-ts', value: 'monorepo-vue-ts' }
+        { title: 'monorepo-vue-ts', value: 'monorepo-vue-ts' },
+        { title: 'chart-component', value: 'chart-component' }
       ]
     }
   ])
