@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { MyChart } from '../../../src'
+import MyChart from '../../../src'
 
 const Container = styled.div`
   width: 100%;
