@@ -26,9 +26,9 @@ const init = async (options: Option) => {
       name: 'template',
       message: 'Choose a template: ',
       choices: [
-        { title: 'monorepo-react-ts', value: 'monorepo-react-ts' },
+        { title: 'monorepo-react-ts', value: 'monorepo-react-ts', description: 'support react, typescript, monorepo' },
         { title: 'monorepo-vue-ts', value: 'monorepo-vue-ts' },
-        { title: 'chart-component', value: 'chart-component' }
+        { title: 'chart-component', value: 'chart-component', description: 'To create custom chart component for low-code platform.' }
       ]
     }
   ])
