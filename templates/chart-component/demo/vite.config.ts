@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-
+import { viteExternalsPlugin } from 'vite-plugin-externals'
 import type { ServerOptions } from 'vite'
 const devHost = 'http://mock.api.com/'
 // 增加项目mock请求
@@ -19,9 +19,15 @@ export const proxy: ServerOptions['proxy'] = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    viteExternalsPlugin({
+      react: 'React',
+      'react-dom': 'ReactDOM'
+    })
+  ],
   server: {
     port: 3000,
     proxy
-  },
+  }
 })
