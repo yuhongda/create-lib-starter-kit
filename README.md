@@ -1,6 +1,6 @@
 # create-lib-starter-kit
 
-> library scaffolding by typing one-line command.
+> Create library scaffolding by typing one-line command.
 
 
 ## Feature

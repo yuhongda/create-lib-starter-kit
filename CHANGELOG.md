@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/yuhongda/create-lib-starter-kit/compare/v1.0.1...v1.0.2) (2022-08-27)
+
+
+### Features
+
+* template description ([de78093](https://github.com/yuhongda/create-lib-starter-kit/commit/de78093e17adf9b030f0636dcce971533b80f88c))
+
+
+### Bug Fixes
+
+* update deps ([e900691](https://github.com/yuhongda/create-lib-starter-kit/commit/e9006912f98b94845c5e5414783102a81ecfa82d))
+* viteExternalsPlugin ([02ef5f4](https://github.com/yuhongda/create-lib-starter-kit/commit/02ef5f45d1cb0dcf2c5343910e20c66eb3f1c3bf))
+
 ### 1.0.1 (2022-08-25)
 
 
