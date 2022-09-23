@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense, useEffect } from 'react'
 import styled from 'styled-components'
-import MyChart from '../../../src'
 import type { Field } from 'echarts-readymade'
+// import MyChart from '../../../src'
+import importUMDChart from './importUMDChart'
+import { customCharts } from './misc'
 
 const Container = styled.div`
   width: 100%;
@@ -9,120 +11,159 @@ const Container = styled.div`
 `
 
 export const Example: React.FC = () => {
-  const [data, setData] = useState([
+  const data = [
     {
-      v6: 0.8141021277904137,
-      d1: '2020-12-31',
-      d2: '北京',
-      v4: null,
-      v5: 27.577454409512264
+      gmv_VKcTuEkv: 20522666651.62307,
+      dt_WPK1kQI9: '2022-01'
     },
     {
-      v6: 0.3141021277904137,
-      d1: '2020-12-31',
-      d2: '上海',
-      v4: 60.028318723339325,
-      v5: 47.577454409512264
+      gmv_VKcTuEkv: 5236721975.90777,
+      dt_WPK1kQI9: '2022-02'
     },
     {
-      v6: 0.8982190959595345,
-      d1: '2021-01-31',
-      d2: '北京',
-      v4: 41.51820080195095,
-      v5: 21.872185824241658
+      gmv_VKcTuEkv: 4276083715.751069,
+      dt_WPK1kQI9: '2022-03'
     },
     {
-      v6: 0.33504289914191104,
-      d1: '2021-02-28',
-      d2: '北京',
-      v4: 41.70814809361097,
-      v5: 31.24105459114353
+      gmv_VKcTuEkv: 3614933166.8436775,
+      dt_WPK1kQI9: '2022-04'
     },
     {
-      v6: 0.4784536385273675,
-      d1: '2021-03-31',
-      d2: '北京',
-      v4: 51.538285808269066,
-      v5: 34.85958873867998
+      gmv_VKcTuEkv: 6129163186.654709,
+      dt_WPK1kQI9: '2022-05'
     },
     {
-      v6: 2.070474009247233,
-      d1: '2021-04-30',
-      d2: '北京',
-      v4: 99.60320028422093,
-      v5: 32.43903058102744
+      gmv_VKcTuEkv: 15386695192.692923,
+      dt_WPK1kQI9: '2022-06'
     },
     {
-      v6: 0.5949555806051605,
-      d1: '2021-05-31',
-      d2: '北京',
-      v4: 51.233048361500714,
-      v5: 32.12192802389004
+      gmv_VKcTuEkv: 1720839.64962371,
+      dt_WPK1kQI9: '2022-07'
     },
     {
-      v6: 0.5378606644046801,
-      d1: '2021-06-30',
-      d2: '北京',
-      v4: 76.84375204981437,
-      v5: 49.96795472336324
-    },
-    {
-      v6: 0.5816593218744337,
-      d1: '2021-07-31',
-      d2: '北京',
-      v4: 46.878570132378925,
-      v5: 29.63885426149979
-    },
-    {
-      v6: 0.662148789567416,
-      d1: '2021-08-31',
-      d2: '北京',
-      v4: 65.13936674312322,
-      v5: 39.1898530095348
-    },
-    {
-      v6: 0.326598530255224,
-      d1: '2021-09-30',
-      d2: '北京',
-      v4: 56.245232663930274,
-      v5: 42.39808154552174
-    },
-    {
-      v6: 0.5967677847481455,
-      d1: '2021-10-31',
-      d2: '北京',
-      v4: 66.81265781236482,
-      v5: 41.8424384876371
-    },
-    { v6: 0.6310820851864044, d1: '2021-11-30', d2: '北京', v4: 100.0, v5: 61.308992912255384 }
-  ])
+      gmv_VKcTuEkv: null,
+      dt_WPK1kQI9: '2022-08'
+    }
+  ]
 
   const dimension: Field[] = [
     {
-      fieldKey: 'd1',
-      fieldName: '日期'
+      isShowAllBrand: false,
+      isShowPercent: false,
+      fieldName: 'dt',
+      isCompare: false,
+      isShowAllCategory: false,
+      fieldKey: 'dt',
+      isChannel: false,
+      isUserTag: false,
+      isDotValueForScatterQuadrant: false,
+      isProductId: false,
+      type: 'dimension|value|where',
+      isMarkLine: false,
+      isRoundNumber: false,
+      isAssocIndexUp: false,
+      isDataType: false,
+      options: {
+        averageOption: true,
+        percentageOption: true,
+        sortOption: true,
+        countOption: true,
+        sumOption: true
+      },
+      originData: {
+        dragMark: '0',
+        fieldName: 'dt',
+        fieldCode: 'dt',
+        __typename: 'FieldInfoItem',
+        isDt: 1,
+        isIndex: -1
+      },
+      fieldKeyAlias: 'dt_WPK1kQI9',
+      isTimeSimplify: false,
+      whereType: 'checkboxGroup',
+      categoryLevel: null,
+      sortField: null
     }
   ]
 
   const valueList: Field[] = [
     {
-      fieldKey: 'v6',
-      fieldName: '占比1',
-      isPercent: true
-    },
-    {
-      fieldKey: 'v4',
-      fieldName: '占比2'
-    },
-    {
-      fieldKey: 'v5',
-      fieldName: '占比3'
+      isShowAllBrand: false,
+      isShowPercent: false,
+      fieldName: '销售额',
+      isShowAllCategory: false,
+      fieldKey: 'gmv',
+      isChannel: false,
+      chartDataOption: {
+        smoothLine: false,
+        label: {
+          hideLabelLowerThan: 0,
+          showFieldNameInLabel: false,
+          show: false,
+          decimalLength: 2,
+          fontSize: 12,
+          position: 'insideTop',
+          formatType: 'decimal',
+          positionPie: 'outside',
+          hideLabel: false
+        },
+        type: undefined,
+        hideLineDot: false,
+        yAxisIndex: 0
+      },
+      isUserTag: false,
+      isDotValueForScatterQuadrant: false,
+      isProductId: false,
+      type: 'dimension|value|where',
+      selectedOption: {
+        averageOption: true
+      },
+      isMarkLine: false,
+      isRoundNumber: false,
+      isAssocIndexUp: false,
+      isDataType: false,
+      options: {
+        averageOption: true,
+        percentageOption: true,
+        sortOption: true,
+        countOption: true,
+        sumOption: true
+      },
+      originData: {
+        dragMark: '0',
+        fieldName: '销售额',
+        fieldCode: 'gmv',
+        __typename: 'FieldInfoItem',
+        isDt: 0,
+        isIndex: -1
+      },
+      fieldKeyAlias: 'gmv_VKcTuEkv',
+      isTimeSimplify: false,
+      whereType: 'checkboxGroup',
+      categoryLevel: null,
+      sortField: null
     }
   ]
 
+  const [Comp, setComp] = useState<any>()
+  useEffect(() => {
+    ;(async () => {
+      const component = await importUMDChart(customCharts[0])
+      setComp(component)
+    })()
+  }, [])
+
   return (
     <Container>
-      <MyChart data={data} dimension={dimension}  valueList={valueList} />
+      {/* <MyChart data={data} dimension={dimension} valueList={valueList} /> */}
+      {Comp ? (
+        <Comp
+          data={data}
+          dimension={dimension}
+          valueList={valueList}
+          {...customCharts[0].chartOption}
+        />
+      ) : null}
     </Container>
   )
 }

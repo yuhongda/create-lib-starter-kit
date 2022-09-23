@@ -23,7 +23,8 @@ const config: RollupOptions = {
     json(),
     styles({ modules: true })
   ],
-  external: ['react', 'react-dom', 'echarts-readymade']
+  // external: []
+  external: ['react', 'react-dom']
 }
 
 if (format === 'es' || format === 'cjs' || format === 'umd') {
@@ -70,7 +71,12 @@ if (format === 'umd') {
   config.output = {
     format,
     name: 'MyChart',
-    file: process.env.NODE_ENV === 'production' ? 'lib/umd/index.min.js' : 'lib/umd/index.js'
+    file: process.env.NODE_ENV === 'production' ? 'lib/umd/index.min.js' : 'lib/umd/index.js',
+    globals: {
+      react: 'React',
+      'react-dom': 'ReactDOM',
+      // 'echarts-readymade': 'EchartsReadymade'
+    }
   }
   config.plugins?.push(
     replace({

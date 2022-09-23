@@ -21,13 +21,16 @@ export const proxy: ServerOptions['proxy'] = {
 export default defineConfig({
   plugins: [
     react(),
-    // viteExternalsPlugin({
-    //   react: 'React',
-    //   'react-dom': 'ReactDOM'
-    // })
+    viteExternalsPlugin({
+      react: 'React',
+      'react-dom': 'ReactDOM'
+    })
   ],
   server: {
     port: 3000,
     proxy
   }
+  // optimizeDeps: {
+  //   exclude: ['react', 'react-dom']
+  // }
 })

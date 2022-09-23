@@ -4,7 +4,10 @@
     "jsx": "react",
     "outDir": "./dist",
     "module": "ESNext",
-    "lib": ["ESNext", "dom"],
+    "lib": [
+      "ESNext",
+      "dom"
+    ],
     "sourceMap": false,
     "target": "esnext",
     "moduleResolution": "node",
@@ -18,5 +21,10 @@
     "noImplicitAny": true,
     "removeComments": false,
     "resolveJsonModule": true
-  }
+  },
+  "include": [
+    "src/**/*",
+    "typings/**/*",
+    "rollup.config.ts"
+  ],
 }

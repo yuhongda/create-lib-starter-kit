@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useState } from 'react'
 import { ChartProvider, Bar } from 'echarts-readymade'
 import styled from 'styled-components'
 import type { Field } from 'echarts-readymade'
@@ -27,32 +27,47 @@ export const MyChart = forwardRef<
 >((props, ref) => {
   const { dimension, valueList, data } = props
 
+  const dimensionData =
+    dimension
+      ?.filter((item: any) => !item.isCompare)
+      .map((item: any) => {
+        return {
+          fieldKey: item.fieldKeyAlias,
+          fieldName: item.fieldName
+        }
+      }) || []
+
+  const compareDimensionData =
+    dimension
+      ?.filter((item: any) => item.isCompare)
+      .map((item: any) => {
+        return {
+          fieldKey: item.fieldKeyAlias,
+          fieldName: item.fieldName
+        }
+      }) || []
+
+  const valueListData =
+    valueList?.map((item: any) => {
+      return {
+        fieldKey: item.fieldKeyAlias,
+        fieldName: item.fieldName,
+        type: item.chartDataOption.type,
+        yAxisIndex: item.chartDataOption.yAxisIndex,
+        isPercent: item.isShowPercent,
+        decimalLength: item.chartDataOption.label.decimalLength
+      }
+    }) || []
+
   return (
     <Container>
-      <ChartProvider
-        data={data}
-        echartsOptions={{
-          option: {
-            title: {
-              text: 'Bar Chart'
-            },
-            yAxis: [
-              {
-                axisLabel: {
-                  formatter: '{value}%'
-                }
-              }
-            ]
-            // color: ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
-          }
-        }}
-      >
+      <ChartProvider data={data}>
         <Bar
           ref={ref}
-          dimension={dimension}
-          valueList={valueList}
+          dimension={dimensionData}
+          valueList={valueListData}
           setOption={(option: EChartsOption) => {
-            option.color = ["#d0f4ea","#e8fcc2","#b1cc74"]
+            option.color = ['#d0f4ea', '#e8fcc2', '#b1cc74']
             return option
           }}
         />
