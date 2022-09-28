@@ -9,6 +9,7 @@ import ora from 'ora'
 import { Octokit } from 'octokit'
 import { execSync } from 'child_process'
 import simpleGit from 'simple-git'
+import jsonfile from 'jsonfile'
 
 const init = async (options: Option) => {
   const { libName, template } = await prompts([
@@ -50,6 +51,11 @@ const init = async (options: Option) => {
       path.resolve(__dirname, `../../templates/${template}`),
       path.resolve(`./${libName}`)
     )
+
+    const packageJsonFilePath = path.resolve(`./${libName}/package.json`)
+    const obj = await jsonfile.readFile(packageJsonFilePath)
+    obj.name = libName
+    await jsonfile.writeFile(packageJsonFilePath, obj)
   } catch (err) {
     console.error(err)
     process.exit(1)

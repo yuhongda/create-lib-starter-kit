@@ -60,6 +60,7 @@
     "commander": "^9.4.0",
     "fs-extra": "^10.1.0",
     "glob": "^8.0.3",
+    "jsonfile": "^6.1.0",
     "octokit": "^1.8.1",
     "ora": "5.4.1",
     "prompts": "^2.4.2",

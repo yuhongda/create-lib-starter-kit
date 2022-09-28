@@ -32,5 +32,5 @@ npx create-lib-starter-kit
 ## Roadmap
 
 - [ ] Remote templates
-- [ ] Setting package name automatically
+- [x] Setting package name automatically
 
