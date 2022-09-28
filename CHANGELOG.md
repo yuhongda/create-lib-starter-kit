@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/yuhongda/create-lib-starter-kit/compare/v1.0.1...v1.1.0) (2022-09-28)
+
+
+### ✨ Features | 新功能
+
+* template description ([de78093](https://github.com/yuhongda/create-lib-starter-kit/commit/de78093e17adf9b030f0636dcce971533b80f88c))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* update deps ([e900691](https://github.com/yuhongda/create-lib-starter-kit/commit/e9006912f98b94845c5e5414783102a81ecfa82d))
+* viteExternalsPlugin ([02ef5f4](https://github.com/yuhongda/create-lib-starter-kit/commit/02ef5f45d1cb0dcf2c5343910e20c66eb3f1c3bf))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* **release:** 1.0.2 ([cc4dba4](https://github.com/yuhongda/create-lib-starter-kit/commit/cc4dba4f8600af35aa13879db61bef01bb902843))
+
+
+### 📦‍ Build System | 打包构建
+
+* add .versionrc.js ([5366308](https://github.com/yuhongda/create-lib-starter-kit/commit/53663083f7ed1a88d3a6dd05d581bfbc0abbc3a1))
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* chart-component ([aeb39a5](https://github.com/yuhongda/create-lib-starter-kit/commit/aeb39a58cb378e0f11363b3aafe0fea619edaf1c))
+
 ### [1.0.2](https://github.com/yuhongda/create-lib-starter-kit/compare/v1.0.1...v1.0.2) (2022-08-27)
 
 
