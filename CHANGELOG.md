@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/yuhongda/create-lib-starter-kit/compare/v1.2.0...v1.3.0) (2023-05-12)
+
+
+### ✨ Features | 新功能
+
+* add template project-react-ts ([da2f311](https://github.com/yuhongda/create-lib-starter-kit/commit/da2f311a0b97113016b7cf85305c73dfa2aae617))
+
 ## [1.2.0](https://github.com/yuhongda/create-lib-starter-kit/compare/v1.1.0...v1.2.0) (2022-09-28)
 
 
