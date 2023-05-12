@@ -37,6 +37,11 @@ const init = async (options: Option) => {
           title: 'chart-component',
           value: 'chart-component',
           description: 'To create custom chart component for low-code platform.'
+        },
+        {
+          title: 'project-react-ts',
+          value: 'project-react-ts',
+          description: 'A project template for react + typescript.'
         }
       ]
     }

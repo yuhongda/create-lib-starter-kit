@@ -1,0 +1,14 @@
+node_modules*
+.vscode
+.idea
+package-lock.json
+# dist
+*.vim
+*.log
+.awcache
+.DS_Store
+.vscode
+tmp
+.env
+/coverage
+/dist
