@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/yuhongda/create-lib-starter-kit/compare/v1.3.0...v1.3.1) (2023-05-23)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* update template ([8a61ab1](https://github.com/yuhongda/create-lib-starter-kit/commit/8a61ab15580131d94276a44af57418a12dd5d124))
+
 ## [1.3.0](https://github.com/yuhongda/create-lib-starter-kit/compare/v1.2.0...v1.3.0) (2023-05-12)
 
 
