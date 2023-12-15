@@ -1,19 +1,8 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/no-var-requires,global-require,import/no-dynamic-require */
 import { spawn } from 'child_process'
-// import { readFileSync } from 'fs'
-
-// import reactRefresh from '@vitejs/plugin-react-refresh'
-// import type { HtmlTagDescriptor } from 'vite'
 import { defineConfig } from 'vite'
-import WindiCSS from 'vite-plugin-windicss'
 import react from '@vitejs/plugin-react'
-
-// import viteCompression from 'vite-plugin-compression'
-// import TransformExternals from 'vite-plugin-transform-externals'
-// import TransformExternals from './vite-plugin'
-// import { packages, unpkgHost } from './config/externals'
-// import { resolveRoot } from './script/resolveRoot'
 import uniqueCommitId from 'unique-commit-id'
 
 import packageJSON from './package.json'
@@ -49,7 +38,6 @@ export default defineConfig({
     },
   },
   plugins: [
-    WindiCSS(),
     react({
       include: '**/*.tsx',
     }),
