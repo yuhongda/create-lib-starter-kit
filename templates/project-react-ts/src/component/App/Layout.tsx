@@ -28,6 +28,11 @@ message.config({
 export const Layout: React.FC = observer(() => {
   const [devicePixelRatio, setDevicePixelRatio] = React.useState(1)
   const { userInfo } = store
+  let [routerState, setRouterState] = React.useState({
+    action: router.history.action,
+    location: router.history.location,
+  })
+  React.useLayoutEffect(() => router.subscribe(setRouterState), [])
 
   const isIndex = router.location.pathname === '/index' // 是否是产品介绍页面
 
@@ -58,13 +63,13 @@ export const Layout: React.FC = observer(() => {
       <AntLayout>
         {inIframe || isIndex ? null : (
           <AntLayout.Sider style={{ background: '#fff' }}>
-            <Menu />
+            <Menu routerState={routerState} />
           </AntLayout.Sider>
         )}
         {/* style={{ height: `calc(100vh*${devicePixelRatio} - 48px)` }} */}
         <AntLayout.Content id="antdLayoutContent" style={{}}>
           <Watermark text={store.userInfo.value.user?.userId} />
-          <TransitionRoute menus={userInfo.value.menus} />
+          <TransitionRoute menus={userInfo.value.menus} routerState={routerState} />
         </AntLayout.Content>
       </AntLayout>
     </AntLayout>

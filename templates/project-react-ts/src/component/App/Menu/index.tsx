@@ -6,6 +6,7 @@ import * as React from 'react'
 import { router } from 'src/router'
 import { Link, Router } from 'react-router-dom'
 import microApp, { removeDomScope } from '@micro-zoe/micro-app'
+import type { Update } from 'history'
 
 import * as store from './store'
 import './module.index.less'
@@ -16,7 +17,9 @@ const { SubMenu } = AntMenu
 /*
  * 在Header头文件中使用的菜单项组件
  * */
-export const Menu: React.FC = observer(() => {
+export const Menu: React.FC<{
+  routerState: Update
+}> = observer(({ routerState: { action, location } }) => {
   /**
    * 刷新后默认set selectedKeys
    */
@@ -70,13 +73,13 @@ export const Menu: React.FC = observer(() => {
   const { history } = router
   const screenHeight = document.body.clientHeight
 
-  let [state, setState] = React.useState({
-    action: router.history.action,
-    location: router.history.location,
-  })
-  React.useLayoutEffect(() => router.subscribe(setState), [])
+  // let [state, setState] = React.useState({
+  //   action: router.history.action,
+  //   location: router.history.location,
+  // })
+  // React.useLayoutEffect(() => router.subscribe(setState), [])
 
-  console.log(store.selectedKeys.value, state.location.pathname)
+  // console.log(store.selectedKeys.value, state.location.pathname)
   return (
     <div className="menu-wrapper">
       {/* {store.computedOpenKeys.get() && store.computedOpenKeys.get().length > 0 && ( */}
@@ -98,7 +101,7 @@ export const Menu: React.FC = observer(() => {
                       {n.children.map(z =>
                         z.isShow || z.show ? (
                           <AntMenu.Item key={z.uri}>
-                            <Router location={state.location} navigationType={state.action} navigator={router.history}>
+                            <Router location={location} navigationType={action} navigator={router.history}>
                               <Link to={z.uri || ''}>{z.name}</Link>
                             </Router>
                           </AntMenu.Item>
@@ -107,7 +110,7 @@ export const Menu: React.FC = observer(() => {
                     </SubMenu>
                   ) : n.isShow || n.show ? (
                     <AntMenu.Item key={n.code}>
-                      <Router location={state.location} navigationType={state.action} navigator={router.history}>
+                      <Router location={location} navigationType={action} navigator={router.history}>
                         {n.linkType === 2 ? (
                           <a href={n.url} target="_blank" rel="noreferrer">
                             {n.name}
@@ -122,7 +125,7 @@ export const Menu: React.FC = observer(() => {
               </SubMenu>
             ) : (
               <AntMenu.Item key={m.code}>
-                <Router location={state.location} navigationType={state.action} navigator={router.history}>
+                <Router location={location} navigationType={action} navigator={router.history}>
                   <Link to={m.uri || ''}>{m.name}</Link>
                 </Router>
               </AntMenu.Item>

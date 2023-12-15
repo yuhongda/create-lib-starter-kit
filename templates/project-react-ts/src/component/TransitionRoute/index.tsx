@@ -32,15 +32,9 @@ const AuthRoutes = (menus: MenuData[]) => {
   // return filterRoutes.filter(v => v)
 }
 
-export const TransitionRoute: React.FC<any> = observer(({ menus }) => {
-  let [state, setState] = React.useState({
-    action: router.history.action,
-    location: router.history.location,
-  })
-  React.useLayoutEffect(() => router.subscribe(setState), [])
-
+export const TransitionRoute: React.FC<any> = observer(({ menus, routerState: { action, location } }) => {
   return (
-    <Router location={state.location} navigationType={state.action} navigator={router.history}>
+    <Router location={location} navigationType={action} navigator={router.history}>
       <TransitionGroup className={s.wrapper}>
         <CSSTransition classNames="route" timeout={300}>
           <React.Suspense fallback={<>loading...</>}>
