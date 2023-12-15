@@ -4,6 +4,7 @@ import { router } from 'src/router'
 const checkSamePathname = (e: React.MouseEvent) => {
   const href = (e.target as HTMLAnchorElement).getAttribute('href')
   const { location } = router
+
   if (href === location.pathname) {
     e.preventDefault()
     e.stopPropagation()

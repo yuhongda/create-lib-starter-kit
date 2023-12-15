@@ -5,7 +5,6 @@ import zhCN from 'antd/lib/locale/zh_CN'
 import * as React from 'react'
 import { DevicePixelRatio } from 'src/devicePixelRadio'
 import { inIframe } from 'tool/InIframe'
-import { router } from 'src/router'
 
 import { Layout } from './Layout'
 import { listen } from './emitter'
@@ -16,17 +15,6 @@ export const App = () => {
   // 处理window兼容问题
   React.useEffect(() => {
     DevicePixelRatio.init()
-  }, [])
-
-  React.useEffect(() => {
-    // 初始化零智消息组件
-    if (inIframe) {
-      LsMessage.init({
-        domain: '*', // 父应用域名
-        router,
-        listenUrl: true,
-      })
-    }
   }, [])
 
   React.useEffect(listen, [])

@@ -23,7 +23,7 @@ export const Menu: React.FC = observer(() => {
   React.useEffect(
     () =>
       router.subscribe(({ location }) => {
-          store.selectedKeys.set([location.pathname])
+        store.selectedKeys.set([location.pathname])
       }),
     [],
   )
@@ -49,80 +49,87 @@ export const Menu: React.FC = observer(() => {
     }
   }
 
-  React.useEffect(() => {
-    // 跳转有权限的首个菜单
-    const firstMenu = sessionStorage.getItem('firstMenuUri')
-    // 刷新时保持当前页签
-    if (!firstMenu || router.location.pathname === '/') {
-      sessionStorage.setItem('firstMenuUri', firstMenuUri.value)
-      // 如果有搜索条件
-      if (router.location.search) {
-        router.push(firstMenuUri.value + router.location.search)
-      } else {
-        router.push(firstMenuUri.value)
-      }
-      store.selectedKeys.set(firstMenuUri.value)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [firstMenuUri.value])
+  // React.useEffect(() => {
+  //   // 跳转有权限的首个菜单
+  //   const firstMenu = sessionStorage.getItem('firstMenuUri')
+  //   // 刷新时保持当前页签
+  //   if (!firstMenu || router.location.pathname === '/') {
+  //     sessionStorage.setItem('firstMenuUri', firstMenuUri.value)
+  //     // 如果有搜索条件
+  //     if (router.location.search) {
+  //       router.push(firstMenuUri.value + router.location.search)
+  //     } else {
+  //       router.push(firstMenuUri.value)
+  //     }
+  //     store.selectedKeys.set(firstMenuUri.value)
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [firstMenuUri.value])
 
   const menus = toJS(store.menuList.value)
   const { history } = router
   const screenHeight = document.body.clientHeight
-console.log(menus)
+
+  let [state, setState] = React.useState({
+    action: router.history.action,
+    location: router.history.location,
+  })
+  React.useLayoutEffect(() => router.subscribe(setState), [])
+
+  console.log(store.selectedKeys.value, state.location.pathname)
   return (
     <div className="menu-wrapper">
       {/* {store.computedOpenKeys.get() && store.computedOpenKeys.get().length > 0 && ( */}
-        <AntMenu
-          selectedKeys={store.selectedKeys.value}
-          defaultOpenKeys={store.computedOpenKeys.get()}
-          mode="inline"
-          className="pl-1 overflow-x-hidden overflow-y-auto"
-          style={{ color: '#000', height: `${screenHeight - 64}px` }}
-          onSelect={onSelect}
-        >
-          {menus.map((m: MenuData) =>
-            m.isShow || m.show ? (
-              m.children && m.children.length ? (
-                <SubMenu key={m.code} title={m.name}>
-                  {m.children.map((n: MenuData) =>
-                    n.children && n.children.length ? (
-                      <SubMenu key={n.code} title={n.name}>
-                        {n.children.map(z =>
-                          z.isShow || z.show ? (
-                            <AntMenu.Item key={z.uri}>
-                              <Router history={history}>
-                                <Link to={z.uri || ''}>{z.name}</Link>
-                              </Router>
-                            </AntMenu.Item>
-                          ) : null,
+      <AntMenu
+        selectedKeys={store.selectedKeys.value}
+        defaultOpenKeys={store.computedOpenKeys.get()}
+        mode="inline"
+        className="pl-1 overflow-x-hidden overflow-y-auto"
+        style={{ color: '#000', height: `${screenHeight - 64}px` }}
+        onSelect={onSelect}
+      >
+        {menus.map((m: MenuData) =>
+          m.isShow || m.show ? (
+            m.children && m.children.length ? (
+              <SubMenu key={m.code} title={m.name}>
+                {m.children.map((n: MenuData) =>
+                  n.children && n.children.length ? (
+                    <SubMenu key={n.code} title={n.name}>
+                      {n.children.map(z =>
+                        z.isShow || z.show ? (
+                          <AntMenu.Item key={z.uri}>
+                            <Router location={state.location} navigationType={state.action} navigator={router.history}>
+                              <Link to={z.uri || ''}>{z.name}</Link>
+                            </Router>
+                          </AntMenu.Item>
+                        ) : null,
+                      )}
+                    </SubMenu>
+                  ) : n.isShow || n.show ? (
+                    <AntMenu.Item key={n.code}>
+                      <Router location={state.location} navigationType={state.action} navigator={router.history}>
+                        {n.linkType === 2 ? (
+                          <a href={n.url} target="_blank" rel="noreferrer">
+                            {n.name}
+                          </a>
+                        ) : (
+                          <Link to={n.uri || ''}>{n.name}</Link>
                         )}
-                      </SubMenu>
-                    ) : n.isShow || n.show ? (
-                      <AntMenu.Item key={n.uri}>
-                        <Router history={history}>
-                          {n.linkType === 2 ? (
-                            <a href={n.url} target="_blank" rel="noreferrer">
-                              {n.name}
-                            </a>
-                          ) : (
-                            <Link to={n.uri || ''}>{n.name}</Link>
-                          )}
-                        </Router>
-                      </AntMenu.Item>
-                    ) : null,
-                  )}
-                </SubMenu>
-              ) : (
-                <AntMenu.Item key={m.uri}>
-                  <Router history={history}>
-                    <Link to={m.uri || ''}>{m.name}</Link>
-                  </Router>
-                </AntMenu.Item>
-              )
-            ) : null,
-          )}
-        </AntMenu>
+                      </Router>
+                    </AntMenu.Item>
+                  ) : null,
+                )}
+              </SubMenu>
+            ) : (
+              <AntMenu.Item key={m.code}>
+                <Router location={state.location} navigationType={state.action} navigator={router.history}>
+                  <Link to={m.uri || ''}>{m.name}</Link>
+                </Router>
+              </AntMenu.Item>
+            )
+          ) : null,
+        )}
+      </AntMenu>
       {/* )} */}
     </div>
   )

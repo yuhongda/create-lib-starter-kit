@@ -14,7 +14,7 @@ export const clearInstance = () => {
 
 export type HistoryType = 'hash' | 'browser' | 'memory'
 
-export interface Route extends RouteProps {
+export type Route = RouteProps & {
   key: string
 }
 export type Routes = Array<Route>

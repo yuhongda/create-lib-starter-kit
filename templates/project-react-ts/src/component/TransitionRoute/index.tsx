@@ -1,7 +1,7 @@
 import Abnormal from 'component/Abnormal'
 import { observer } from 'mobx-react-lite'
 import * as React from 'react'
-import { Route, Router, Switch } from 'react-router-dom'
+import { Route, Routes, Router } from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { router } from 'src/router'
 import { getCurUri } from 'src/component/App/Menu/store'
@@ -32,21 +32,29 @@ const AuthRoutes = (menus: MenuData[]) => {
   // return filterRoutes.filter(v => v)
 }
 
-export const TransitionRoute: React.FC<any> = observer(({ menus }) => (
-  <Router history={router.history}>
-    <TransitionGroup className={s.wrapper}>
-      <CSSTransition classNames="route" timeout={300}>
-        <React.Suspense fallback={<>loading...</>}>
-          <Switch location={router.location}>
-            {AuthRoutes(menus).map(r => (
-              <Route {...r} />
-            ))}
-            {/* <Route path="*" component={RedirectToWorkbench} /> */}
-            {/* 没有匹配到的默认路由，放到最后 */}
-            {menus && menus.length > 0 && <Route component={Abnormal} />}
-          </Switch>
-        </React.Suspense>
-      </CSSTransition>
-    </TransitionGroup>
-  </Router>
-))
+export const TransitionRoute: React.FC<any> = observer(({ menus }) => {
+  let [state, setState] = React.useState({
+    action: router.history.action,
+    location: router.history.location,
+  })
+  React.useLayoutEffect(() => router.subscribe(setState), [])
+
+  return (
+    <Router location={state.location} navigationType={state.action} navigator={router.history}>
+      <TransitionGroup className={s.wrapper}>
+        <CSSTransition classNames="route" timeout={300}>
+          <React.Suspense fallback={<>loading...</>}>
+            <Routes>
+              {AuthRoutes(menus).map(r => (
+                <Route {...r} />
+              ))}
+              {/* <Route path="*" element={<RedirectToWorkbench />} /> */}
+              {/* 没有匹配到的默认路由，放到最后 */}
+              {menus && menus.length > 0 && <Route path="*" element={<Abnormal />} />}
+            </Routes>
+          </React.Suspense>
+        </CSSTransition>
+      </TransitionGroup>
+    </Router>
+  )
+})

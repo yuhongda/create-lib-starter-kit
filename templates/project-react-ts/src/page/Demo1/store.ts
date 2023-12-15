@@ -4,7 +4,6 @@ import * as api from 'src/services/Demo'
 
 export const count = setter<number>({
   value: 0,
-  autoRestoreOnBecomeUnobserved: true,
 })
 
 export const someData = request({

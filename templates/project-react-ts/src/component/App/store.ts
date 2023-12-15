@@ -34,10 +34,17 @@ export const userInfo = mobxRequest({
 
     const mockMenu = [
       {
-        code: 'Demo',
+        code: '/Demo',
         name: 'Demo',
         uri: '/Demo',
         url: '/Demo',
+        isShow: true,
+      },
+      {
+        code: '/Demo1',
+        name: 'Demo1',
+        uri: '/Demo1',
+        url: '/Demo1',
         isShow: true,
       },
     ]

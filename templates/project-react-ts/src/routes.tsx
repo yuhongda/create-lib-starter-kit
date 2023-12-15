@@ -6,20 +6,16 @@ const Iframe = lazy(() => import(/* webpackChunkName: "Iframe" */ 'src/component
 const MicroApp = lazy(() => import(/* webpackChunkName: "MicroApp" */ 'src/component/MicroApp'))
 
 const Demo = lazy(() => import(/* webpackChunkName: "Demo" */ 'src/page/Demo'))
+const Demo1 = lazy(() => import(/* webpackChunkName: "Demo1" */ 'src/page/Demo1'))
 
-interface ExtendsRoute extends Route {
-  keepAlive?: boolean
-}
-type ExtendsRoutes = ExtendsRoute[]
-
-export const routes: ExtendsRoutes = [
+export const routes: Route[] = [
   /**
    * @description: iframe-看板使用
    * @return {*}
    */
   {
     key: 'iframe',
-    component: Iframe,
+    element: <Iframe />,
     path: '/data-insight/iframe/:name',
   },
   /**
@@ -28,36 +24,37 @@ export const routes: ExtendsRoutes = [
    */
   {
     key: 'microApp',
-    component: MicroApp,
+    element: <MicroApp />,
     path: '/data-insight/microapp/:name',
   },
   {
     key: '500',
     path: '/data-insight/500',
-    exact: true,
-    component: Abnormal,
+    element: <Abnormal />,
   },
   {
     key: 'NoAuthority',
     path: '/data-insight/NoAuthority',
-    exact: true,
-    component: Abnormal,
+    element: <Abnormal />,
   },
   {
     key: '503',
     path: '/data-insight/503',
-    exact: true,
-    component: Abnormal,
+    element: <Abnormal />,
   },
   {
     key: 'NoData',
     path: '/data-insight/NoData',
-    exact: true,
-    component: Abnormal,
+    element: <Abnormal />,
   },
   {
     key: '/Demo',
-    component: Demo,
+    element: <Demo />,
     path: '/Demo',
+  },
+  {
+    key: '/Demo1',
+    element: <Demo1 />,
+    path: '/Demo1',
   },
 ]

@@ -8,6 +8,7 @@ import pic403 from 'src/assets/403.png'
 import picnodata from 'src/assets/images/no_data.png'
 
 import style from './style.module.less'
+import { observer } from 'mobx-react-lite'
 
 interface StatusItem {
   title: string
@@ -64,7 +65,7 @@ const NoAuthorityRoutesPaths: string[] = routes.map(v => v.path || 'iframe' || '
 
 message.destroy()
 
-const Abnormal: FC = () => {
+const Abnormal: FC = observer(() => {
   const { pathname, search } = router.location
   let status: string = pathname?.split('/')?.[2]
 
@@ -95,6 +96,6 @@ const Abnormal: FC = () => {
       </div>
     </div>
   )
-}
+})
 
 export default Abnormal

@@ -1503,7 +1503,7 @@
   resolved "http://registry.m.jd.com/@babel/regjsgen/download/@babel/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha1-8LppsHXh8F+yglt/rZkeetuxgxA=
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.16.7", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.0", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.22.5", "@babel/runtime@^7.23.2", "@babel/runtime@^7.23.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.16.7", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.0", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.22.5", "@babel/runtime@^7.23.2", "@babel/runtime@^7.23.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.23.6"
   resolved "http://registry.m.jd.com/@babel/runtime/download/@babel/runtime-7.23.6.tgz#c05e610dc228855dc92ef1b53d07389ed8ab521d"
   integrity sha1-wF5hDcIohV3JLvG1PQc4ntirUh0=
@@ -2329,6 +2329,11 @@
     rc-resize-observer "^1.3.1"
     rc-util "^5.38.0"
 
+"@remix-run/router@1.14.0":
+  version "1.14.0"
+  resolved "http://registry.m.jd.com/@remix-run/router/download/@remix-run/router-1.14.0.tgz#9bc39a5a3a71b81bdb310eba6def5bc3966695b7"
+  integrity sha1-m8OaWjpxuBvbMQ66be9bw5Zmlbc=
+
 "@rmb/events@^0.3.0":
   version "0.3.0"
   resolved "http://registry.m.jd.com/@rmb/events/download/@rmb/events-0.3.0.tgz#f99803b8ac2ff8d5ccab737a23ebcc0f0fd0e934"
@@ -2589,11 +2594,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/history@^4.7.11":
-  version "4.7.11"
-  resolved "http://registry.m.jd.com/@types/history/download/@types/history-4.7.11.tgz#56588b17ae8f50c53983a524fc3cc47437969d64"
-  integrity sha1-VliLF66PUMU5g6Uk/DzEdDeWnWQ=
-
 "@types/hoist-non-react-statics@*":
   version "3.3.5"
   resolved "http://registry.m.jd.com/@types/hoist-non-react-statics/download/@types/hoist-non-react-statics-3.3.5.tgz#dab7867ef789d87e2b4b0003c9d65c49cc44a494"
@@ -2693,35 +2693,18 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-dom@^17.0.9":
-  version "17.0.25"
-  resolved "http://registry.m.jd.com/@types/react-dom/download/@types/react-dom-17.0.25.tgz#e0e5b3571e1069625b3a3da2b279379aa33a0cb5"
-  integrity sha1-4OWzVx4QaWJbOj2isnk3mqM6DLU=
+"@types/react-dom@^18.2.17":
+  version "18.2.17"
+  resolved "http://registry.m.jd.com/@types/react-dom/download/@types/react-dom-18.2.17.tgz#375c55fab4ae671bd98448dcfa153268d01d6f64"
+  integrity sha1-N1xV+rSuZxvZhEjc+hUyaNAdb2Q=
   dependencies:
-    "@types/react" "^17"
+    "@types/react" "*"
 
 "@types/react-faux-dom@^4.1.5":
   version "4.1.5"
   resolved "http://registry.m.jd.com/@types/react-faux-dom/download/@types/react-faux-dom-4.1.5.tgz#c378859093a38407f96715b935394b4569b51e7c"
   integrity sha1-w3iFkJOjhAf5ZxW5NTlLRWm1Hnw=
   dependencies:
-    "@types/react" "*"
-
-"@types/react-router-dom@^5.1.8":
-  version "5.3.3"
-  resolved "http://registry.m.jd.com/@types/react-router-dom/download/@types/react-router-dom-5.3.3.tgz#e9d6b4a66fcdbd651a5f106c2656a30088cc1e83"
-  integrity sha1-6da0pm/NvWUaXxBsJlajAIjMHoM=
-  dependencies:
-    "@types/history" "^4.7.11"
-    "@types/react" "*"
-    "@types/react-router" "*"
-
-"@types/react-router@*":
-  version "5.1.20"
-  resolved "http://registry.m.jd.com/@types/react-router/download/@types/react-router-5.1.20.tgz#88eccaa122a82405ef3efbcaaa5dcdd9f021387c"
-  integrity sha1-iOzKoSKoJAXvPvvKql3N2fAhOHw=
-  dependencies:
-    "@types/history" "^4.7.11"
     "@types/react" "*"
 
 "@types/react-transition-group@^4.4.2":
@@ -2731,19 +2714,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.0.14":
+"@types/react@*", "@types/react@^18.2.45":
   version "18.2.45"
   resolved "http://registry.m.jd.com/@types/react/download/@types/react-18.2.45.tgz#253f4fac288e7e751ab3dc542000fb687422c15c"
   integrity sha1-JT9PrCiOfnUas9xUIAD7aHQiwVw=
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
-"@types/react@^17":
-  version "17.0.73"
-  resolved "http://registry.m.jd.com/@types/react/download/@types/react-17.0.73.tgz#23a663c803b18d8b7f4f2bb9b467f2f3fd70787a"
-  integrity sha1-I6ZjyAOxjYt/Tyu5tGfy8/1weHo=
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -6841,18 +6815,6 @@ hex-color-regex@^1.1.0:
   resolved "http://registry.m.jd.com/hex-color-regex/download/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
 
-history@^4.9.0:
-  version "4.10.1"
-  resolved "http://registry.m.jd.com/history/download/history-4.10.1.tgz#33371a65e3a83b267434e2b3f3b1b4c58aad4cf3"
-  integrity sha1-MzcaZeOoOyZ0NOKz87G0xYqtTPM=
-  dependencies:
-    "@babel/runtime" "^7.1.2"
-    loose-envify "^1.2.0"
-    resolve-pathname "^3.0.0"
-    tiny-invariant "^1.0.2"
-    tiny-warning "^1.0.0"
-    value-equal "^1.0.1"
-
 history@^5.0.1:
   version "5.3.0"
   resolved "http://registry.m.jd.com/history/download/history-5.3.0.tgz#1548abaa245ba47992f063a0783db91ef201c73b"
@@ -6860,7 +6822,7 @@ history@^5.0.1:
   dependencies:
     "@babel/runtime" "^7.7.6"
 
-hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0:
+hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.0:
   version "3.3.2"
   resolved "http://registry.m.jd.com/hoist-non-react-statics/download/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha1-7OCsr3HWLClpwuxZ/v9CpLGoW0U=
@@ -7508,11 +7470,6 @@ is-wsl@^2.1.1:
   integrity sha1-dKTHbnfKn9P5MvKQwX6jJs0VcnE=
   dependencies:
     is-docker "^2.0.0"
-
-isarray@0.0.1:
-  version "0.0.1"
-  resolved "http://registry.m.jd.com/isarray/download/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
-  integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
 
 isarray@1.0.0:
   version "1.0.0"
@@ -8456,7 +8413,7 @@ log-update@^1.0.2:
     ansi-escapes "^1.0.0"
     cli-cursor "^1.0.2"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "http://registry.m.jd.com/loose-envify/download/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8=
@@ -9437,13 +9394,6 @@ path-to-regexp@2.4.0:
   version "2.4.0"
   resolved "http://registry.m.jd.com/path-to-regexp/download/path-to-regexp-2.4.0.tgz#35ce7f333d5616f1c1e1bfe266c3aba2e5b2e704"
   integrity sha1-Nc5/Mz1WFvHB4b/iZsOrouWy5wQ=
-
-path-to-regexp@^1.7.0:
-  version "1.8.0"
-  resolved "http://registry.m.jd.com/path-to-regexp/download/path-to-regexp-1.8.0.tgz#887b3ba9d84393e87a0a0b9f4cb756198b53548a"
-  integrity sha1-iHs7qdhDk+h6CgufTLdWGYtTVIo=
-  dependencies:
-    isarray "0.0.1"
 
 path-to-regexp@^3.0.0:
   version "3.2.0"
@@ -10605,7 +10555,7 @@ react-faux-dom@^4.5.0:
     query-selector "^1.0.9"
     style-attr "^1.0.1"
 
-react-is@^16.12.0, react-is@^16.13.1, react-is@^16.6.0, react-is@^16.7.0:
+react-is@^16.12.0, react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "http://registry.m.jd.com/react-is/download/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
@@ -10630,33 +10580,20 @@ react-refresh@^0.14.0:
   resolved "http://registry.m.jd.com/react-refresh/download/react-refresh-0.14.0.tgz#4e02825378a5f227079554d4284889354e5f553e"
   integrity sha1-TgKCU3il8icHlVTUKEiJNU5fVT4=
 
-react-router-dom@^5.2.0:
-  version "5.3.4"
-  resolved "http://registry.m.jd.com/react-router-dom/download/react-router-dom-5.3.4.tgz#2ed62ffd88cae6db134445f4a0c0ae8b91d2e5e6"
-  integrity sha1-LtYv/YjK5tsTREX0oMCui5HS5eY=
+react-router-dom@^6.21.0:
+  version "6.21.0"
+  resolved "http://registry.m.jd.com/react-router-dom/download/react-router-dom-6.21.0.tgz#aa4c6bc046a8e8723095bc09b3c0ab2254532712"
+  integrity sha1-qkxrwEao6HIwlbwJs8CrIlRTJxI=
   dependencies:
-    "@babel/runtime" "^7.12.13"
-    history "^4.9.0"
-    loose-envify "^1.3.1"
-    prop-types "^15.6.2"
-    react-router "5.3.4"
-    tiny-invariant "^1.0.2"
-    tiny-warning "^1.0.0"
+    "@remix-run/router" "1.14.0"
+    react-router "6.21.0"
 
-react-router@5.3.4, react-router@^5.2.0:
-  version "5.3.4"
-  resolved "http://registry.m.jd.com/react-router/download/react-router-5.3.4.tgz#8ca252d70fcc37841e31473c7a151cf777887bb5"
-  integrity sha1-jKJS1w/MN4QeMUc8ehUc93eIe7U=
+react-router@6.21.0, react-router@^6.21.0:
+  version "6.21.0"
+  resolved "http://registry.m.jd.com/react-router/download/react-router-6.21.0.tgz#6fe3e59877aca3dccceec1801d26991ddf42d12b"
+  integrity sha1-b+PlmHeso9zM7sGAHSaZHd9C0Ss=
   dependencies:
-    "@babel/runtime" "^7.12.13"
-    history "^4.9.0"
-    hoist-non-react-statics "^3.1.0"
-    loose-envify "^1.3.1"
-    path-to-regexp "^1.7.0"
-    prop-types "^15.6.2"
-    react-is "^16.6.0"
-    tiny-invariant "^1.0.2"
-    tiny-warning "^1.0.0"
+    "@remix-run/router" "1.14.0"
 
 react-transition-group@^4.4.2:
   version "4.4.5"
@@ -10943,11 +10880,6 @@ resolve-global@1.0.0, resolve-global@^1.0.0:
   integrity sha1-oqed9K8so/Sb93753azTItrRklU=
   dependencies:
     global-dirs "^0.1.1"
-
-resolve-pathname@^3.0.0:
-  version "3.0.0"
-  resolved "http://registry.m.jd.com/resolve-pathname/download/resolve-pathname-3.0.0.tgz#99d02224d3cf263689becbb393bc560313025dcd"
-  integrity sha1-mdAiJNPPJjaJvsuzk7xWAxMCXc0=
 
 resolve-url@^0.2.1:
   version "0.2.1"
@@ -11985,16 +11917,6 @@ through2@^4.0.0:
   resolved "http://registry.m.jd.com/through/download/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
 
-tiny-invariant@^1.0.2:
-  version "1.3.1"
-  resolved "http://registry.m.jd.com/tiny-invariant/download/tiny-invariant-1.3.1.tgz#8560808c916ef02ecfd55e66090df23a4b7aa642"
-  integrity sha1-hWCAjJFu8C7P1V5mCQ3yOkt6pkI=
-
-tiny-warning@^1.0.0:
-  version "1.0.3"
-  resolved "http://registry.m.jd.com/tiny-warning/download/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754"
-  integrity sha1-lKMNtFPfTGQ9D9VmBg1gqHXYR1Q=
-
 tinycolor2@^1.4.1:
   version "1.6.0"
   resolved "http://registry.m.jd.com/tinycolor2/download/tinycolor2-1.6.0.tgz#f98007460169b0263b97072c5ae92484ce02d09e"
@@ -12541,11 +12463,6 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
-
-value-equal@^1.0.1:
-  version "1.0.1"
-  resolved "http://registry.m.jd.com/value-equal/download/value-equal-1.0.1.tgz#1e0b794c734c5c0cade179c437d356d931a34d6c"
-  integrity sha1-Hgt5THNMXAyt4XnEN9NW2TGjTWw=
 
 vary@~1.1.2:
   version "1.1.2"
