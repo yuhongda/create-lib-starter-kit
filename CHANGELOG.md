@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/yuhongda/create-lib-starter-kit/compare/v1.3.1...v1.3.2) (2023-12-15)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* dep ([19516d1](https://github.com/yuhongda/create-lib-starter-kit/commit/19516d13df09538610031e1c5f0a2967a42b8159))
+* templage ([e011e76](https://github.com/yuhongda/create-lib-starter-kit/commit/e011e7640d2d39849f2112016ef759c97e943b54))
+* template ([713ccf5](https://github.com/yuhongda/create-lib-starter-kit/commit/713ccf5cde7bc508ad5e33c4bb534bdd745af804))
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* router ([2e64eb4](https://github.com/yuhongda/create-lib-starter-kit/commit/2e64eb43ce2f55b36f8dee8c827c84449c50e1c1))
+
 ### [1.3.1](https://github.com/yuhongda/create-lib-starter-kit/compare/v1.3.0...v1.3.1) (2023-05-23)
 
 
