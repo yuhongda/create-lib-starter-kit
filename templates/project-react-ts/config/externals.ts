@@ -8,14 +8,6 @@ export const packages: ConstructorParameters<typeof HtmlWebpackInjectExternalsPl
     path: '/dist/antd.min.css',
   },
   {
-    name: '@rmb/path-to-regexp',
-    path: '/dist/index.js',
-  },
-  {
-    name: '@rmb/events',
-    path: '/dist/index.js',
-  },
-  {
     name: '@sentry/browser',
     path: `/build/bundle${isProd ? '.min' : ''}.js`,
   },
